@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="well">
+    <div class="row">
+        <div class="col-md-3" style="margin-left: 1.5%;">
+            <label><h5>Cliente:</h5></label>
+            @Html.DropDownList("customers", ViewBag.customers as MultiSelectList, new { @class = "form-control", style = "display: inline-block; width: 65%" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-12">
+                <label><h5>Periodo Data Entrega:</h5></label>
+            </div>
+            <div class="col-md-12">
+                <input type="date" id="InitalDate" class="form-control" style="display: inline-block; width:22%" />
+                <label><h5>até</h5></label>
+                <input type="date" id="FinalDate" class="form-control" style="display: inline-block; width:22%" />
+                <button class="btn btn-default" id="SearchCustomer">Pesquisar</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table id="MyTable" class="table table-hover table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Cliente</th>
+                        <th>Valor Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*<tr>
+                            <td>Jill</td>
+                            <td>10.00</td>
+                            <td>50.00</td>
+                            <td><button style="border: none;"><i class="fa fa-trash-o"></i></button></td>
+                        </tr>*@
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            OrdersController.init();
+        });
+    </script>
+}
